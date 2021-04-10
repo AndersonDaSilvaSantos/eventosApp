@@ -1,6 +1,8 @@
   
 package com.eventosApp.controllers;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +46,7 @@ public class EventoController {
 	
 	@RequestMapping("/eventos")
 	public ModelAndView listaEventos(){
-		ModelAndView mv = new ModelAndView("index");
+		ModelAndView mv = new ModelAndView("listaEventos");
 		Iterable<Evento> eventos = er.findAll();
 		mv.addObject("eventos", eventos);
 		return mv;
@@ -61,6 +63,8 @@ public class EventoController {
 		
 		return mv;
 	}
+	
+	
 	
 	@RequestMapping("/deletarEvento")
 	public String deletarEvento(long codigo){
@@ -83,6 +87,7 @@ public class EventoController {
 		return "redirect:/{codigo}";
 	}
 	
+
 	@RequestMapping("/deletarConvidado")
 	public String deletarConvidado(String rg){
 		Convidado convidado = cr.findByRg(rg);

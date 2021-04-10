@@ -8,4 +8,5 @@ import com.eventosApp.models.Evento;
 public interface ConvidadoRepository extends CrudRepository<Convidado, String>{
 	Iterable<Convidado> findByEvento(Evento evento);
 	Convidado findByRg(String rg);
+	//Convidado findByCodigo(long codigo);
 }
